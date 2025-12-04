@@ -8,11 +8,12 @@ import org.hibernate.annotations.OnDeleteAction;
 
 
 @Entity
-@Table(name="like")
+@Table(name="likes")
 @Data
 public class Like {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)

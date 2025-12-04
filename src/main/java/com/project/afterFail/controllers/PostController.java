@@ -27,6 +27,10 @@ public class PostController {
         return postService.createOnePost(newPost);
     }
 
+    @DeleteMapping
+    public void deleteOnePost(@RequestParam Long postId){
+        postService.deleteOnePost(postId);
+    }
 
     @GetMapping("{postId}")
     public Post getOnePost(@PathVariable Long postId){

@@ -12,9 +12,11 @@ import java.util.Optional;
 @Service
 public class PostService {
     private PostRepository postRepository;
+    private UserRepository userRepository;
 
     public PostService(PostRepository postRepository, UserRepository userRepository) {
         this.postRepository = postRepository;
+        this.userRepository = userRepository;
     }
 
     public List<Post> getAllPosts(Optional<Long> userId) {
@@ -33,4 +35,9 @@ public class PostService {
     public Post createOnePost(Post newPost) {
         return postRepository.save(newPost);
     }
+
+    public void deleteOnePost(Long postId) {
+        postRepository.deleteById(postId);
+    }
+
 }
